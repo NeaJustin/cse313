@@ -1,0 +1,1960 @@
+     1                              <1> %ifdef OSX
+     2                              <1> %macro defaultrel  0.nolist
+     3                              <1>         default  rel
+     4                              <1> %endmacro
+     5                              <1> %define main _main
+     6                              <1> %macro cname 1-*
+     7                              <1> %rep %0
+     8                              <1> %define %1 _ %+ %1
+     9                              <1> %rotate 1
+    10                              <1> %endrep
+    11                              <1> %endmacro
+    12                              <1> %macro CNAME 1-*
+    13                              <1> %rep %0
+    14                              <1> %define %1 _ %+ %1
+    15                              <1> %rotate 1
+    16                              <1> %endrep
+    17                              <1> %endmacro
+    18                              <1> %define abort _ %+ abort
+    19                              <1> %define abs _ %+ abs
+    20                              <1> %define acos _ %+ acos
+    21                              <1> %define alarm _ %+ alarm
+    22                              <1> %define alloca _ %+ alloca
+    23                              <1> %define asctime _ %+ asctime
+    24                              <1> %define asin _ %+ asin
+    25                              <1> %define atan _ %+ atan
+    26                              <1> %define atexit _ %+ atexit
+    27                              <1> %define atof _ %+ atof
+    28                              <1> %define atoi _ %+ atoi
+    29                              <1> %define atol _ %+ atol
+    30                              <1> %define basename _ %+ basename
+    31                              <1> %define bcmp _ %+ bcmp
+    32                              <1> %define bcopy _ %+ bcopy
+    33                              <1> %define break _ %+ break
+    34                              <1> %define brk _ %+ brk
+    35                              <1> %define bsearch _ %+ bsearch
+    36                              <1> %define bzero _ %+ bzero
+    37                              <1> %define calloc _ %+ calloc
+    38                              <1> %define ceil _ %+ ceil
+    39                              <1> %define ceilf _ %+ ceilf
+    40                              <1> %define chdir _ %+ chdir
+    41                              <1> %define chmod _ %+ chmod
+    42                              <1> %define chown _ %+ chown
+    43                              <1> %define chroot _ %+ chroot
+    44                              <1> %define clearenv _ %+ clearenv
+    45                              <1> %define clock _ %+ clock
+    46                              <1> %define close _ %+ close
+    47                              <1> %define closedir _ %+ closedir
+    48                              <1> %define cos _ %+ cos
+    49                              <1> %define creat _ %+ creat
+    50                              <1> %define ctime _ %+ ctime
+    51                              <1> %define cuserid _ %+ cuserid
+    52                              <1> %define difftime _ %+ difftime
+    53                              <1> %define dirname _ %+ dirname
+    54                              <1> %define drand48 _ %+ drand48
+    55                              <1> %define dup _ %+ dup
+    56                              <1> %define dup2 _ %+ dup2
+    57                              <1> %define dup3 _ %+ dup3
+    58                              <1> %define erf _ %+ erf
+    59                              <1> %define errno _ %+ errno
+    60                              <1> %define exec _ %+ exec
+    61                              <1> %define execl _ %+ execl
+    62                              <1> %define execle _ %+ execle
+    63                              <1> %define execlp _ %+ execlp
+    64                              <1> %define execv _ %+ execv
+    65                              <1> %define execve _ %+ execve
+    66                              <1> %define execvp _ %+ execvp
+    67                              <1> %define execvpe _ %+ execvpe
+    68                              <1> %define exit _ %+ exit
+    69                              <1> %define exp _ %+ exp
+    70                              <1> %define fclose _ %+ fclose
+    71                              <1> %define fcntl _ %+ fcntl
+    72                              <1> %define fdopen _ %+ fdopen
+    73                              <1> %define fdopendir _ %+ fdopendir
+    74                              <1> %define feof _ %+ feof
+    75                              <1> %define fflush _ %+ fflush
+    76                              <1> %define fgetc _ %+ fgetc
+    77                              <1> %define fgets _ %+ fgets
+    78                              <1> %define fileno _ %+ fileno
+    79                              <1> %define flock _ %+ flock
+    80                              <1> %define floor _ %+ floor
+    81                              <1> %define fopen _ %+ fopen
+    82                              <1> %define fork _ %+ fork
+    83                              <1> %define fprintf _ %+ fprintf
+    84                              <1> %define fputc _ %+ fputc
+    85                              <1> %define fputs _ %+ fputs
+    86                              <1> %define fread _ %+ fread
+    87                              <1> %define free _ %+ free
+    88                              <1> %define freopen _ %+ freopen
+    89                              <1> %define fscanf _ %+ fscanf
+    90                              <1> %define fseek _ %+ fseek
+    91                              <1> %define fsetpos _ %+ fsetpos
+    92                              <1> %define fstat _ %+ fstat
+    93                              <1> %define fsync _ %+ fsync
+    94                              <1> %define ftell _ %+ ftell
+    95                              <1> %define ftime _ %+ ftime
+    96                              <1> %define ftok _ %+ ftok
+    97                              <1> %define funlockfile _ %+ funlockfile
+    98                              <1> %define getc _ %+ getc
+    99                              <1> %define getchar _ %+ getchar
+   100                              <1> %define get_current_dir_name _ %+ get_current_dir_name
+   101                              <1> %define getcwd _ %+ getcwd
+   102                              <1> %define getdate _ %+ getdate
+   103                              <1> %define getegid _ %+ getegid
+   104                              <1> %define getenv _ %+ getenv
+   105                              <1> %define geteuid _ %+ geteuid
+   106                              <1> %define getgid _ %+ getgid
+   107                              <1> %define getgrgid _ %+ getgrgid
+   108                              <1> %define getgrnam _ %+ getgrnam
+   109                              <1> %define getgroups _ %+ getgroups
+   110                              <1> %define getline _ %+ getline
+   111                              <1> %define getopt _ %+ getopt
+   112                              <1> %define getpagesize _ %+ getpagesize
+   113                              <1> %define getpass _ %+ getpass
+   114                              <1> %define getpgid _ %+ getpgid
+   115                              <1> %define getpgrp _ %+ getpgrp
+   116                              <1> %define getpid _ %+ getpid
+   117                              <1> %define getpmsg _ %+ getpmsg
+   118                              <1> %define getppid _ %+ getppid
+   119                              <1> %define getpt _ %+ getpt
+   120                              <1> %define getpw _ %+ getpw
+   121                              <1> %define getpwent _ %+ getpwent
+   122                              <1> %define getpwnam _ %+ getpwnam
+   123                              <1> %define getpwuid _ %+ getpwuid
+   124                              <1> %define gets _ %+ gets
+   125                              <1> %define getsid _ %+ getsid
+   126                              <1> %define gettimeofday _ %+ gettimeofday
+   127                              <1> %define getuid _ %+ getuid
+   128                              <1> %define getumask _ %+ getumask
+   129                              <1> %define getwd _ %+ getwd
+   130                              <1> %define glob _ %+ glob
+   131                              <1> %define globfree _ %+ globfree
+   132                              <1> %define gmtime _ %+ gmtime
+   133                              <1> %define index _ %+ index
+   134                              <1> %define ioctl _ %+ ioctl
+   135                              <1> %define ioperm _ %+ ioperm
+   136                              <1> %define kill _ %+ kill
+   137                              <1> %define killpg _ %+ killpg
+   138                              <1> %define link _ %+ link
+   139                              <1> %define localtime _ %+ localtime
+   140                              <1> %define lock _ %+ lock
+   141                              <1> %define lockf _ %+ lockf
+   142                              <1> %define lseek _ %+ lseek
+   143                              <1> %define lstat _ %+ lstat
+   144                              <1> %define malloc _ %+ malloc
+   145                              <1> %define memccpy _ %+ memccpy
+   146                              <1> %define memchr _ %+ memchr
+   147                              <1> %define memcmp _ %+ memcmp
+   148                              <1> %define memcpy _ %+ memcpy
+   149                              <1> %define memfrob _ %+ memfrob
+   150                              <1> %define memmem _ %+ memmem
+   151                              <1> %define memmove _ %+ memmove
+   152                              <1> %define mempcpy _ %+ mempcpy
+   153                              <1> %define memrchr _ %+ memrchr
+   154                              <1> %define memset _ %+ memset
+   155                              <1> %define mkdir _ %+ mkdir
+   156                              <1> %define mkdtemp _ %+ mkdtemp
+   157                              <1> %define mkfifo _ %+ mkfifo
+   158                              <1> %define mknod _ %+ mknod
+   159                              <1> %define mktemp _ %+ mktemp
+   160                              <1> %define mktime _ %+ mktime
+   161                              <1> %define mlock _ %+ mlock
+   162                              <1> %define mlockall _ %+ mlockall
+   163                              <1> %define mmap _ %+ mmap
+   164                              <1> %define nanosleep _ %+ nanosleep
+   165                              <1> %define nice _ %+ nice
+   166                              <1> %define on_exit _ %+ on_exit
+   167                              <1> %define open _ %+ open
+   168                              <1> %define opendir _ %+ opendir
+   169                              <1> %define optarg _ %+ optarg
+   170                              <1> %define opterr _ %+ opterr
+   171                              <1> %define optind _ %+ optind
+   172                              <1> %define optopt _ %+ optopt
+   173                              <1> %define pause _ %+ pause
+   174                              <1> %define perror _ %+ perror
+   175                              <1> %define pipe _ %+ pipe
+   176                              <1> %define pipe2 _ %+ pipe2
+   177                              <1> %define popen _ %+ popen
+   178                              <1> %define pow _ %+ pow
+   179                              <1> %define printf _ %+ printf
+   180                              <1> %define pthread_attr_destroy _ %+ pthread_attr_destroy
+   181                              <1> %define pthread_attr_getaffinity_np _ %+ pthread_attr_getaffinity_np
+   182                              <1> %define pthread_attr_getdetachstate _ %+ pthread_attr_getdetachstate
+   183                              <1> %define pthread_attr_getguardsize _ %+ pthread_attr_getguardsize
+   184                              <1> %define pthread_attr_getinheritsched _ %+ pthread_attr_getinheritsched
+   185                              <1> %define pthread_attr_getschedparam _ %+ pthread_attr_getschedparam
+   186                              <1> %define pthread_attr_getschedpolicy _ %+ pthread_attr_getschedpolicy
+   187                              <1> %define pthread_attr_getscope _ %+ pthread_attr_getscope
+   188                              <1> %define pthread_attr_getstack _ %+ pthread_attr_getstack
+   189                              <1> %define pthread_attr_getstackaddr _ %+ pthread_attr_getstackaddr
+   190                              <1> %define pthread_attr_getstacksize _ %+ pthread_attr_getstacksize
+   191                              <1> %define pthread_attr_init _ %+ pthread_attr_init
+   192                              <1> %define pthread_attr_setaffinity_np _ %+ pthread_attr_setaffinity_np
+   193                              <1> %define pthread_attr_setdetachstate _ %+ pthread_attr_setdetachstate
+   194                              <1> %define pthread_attr_setguardsize _ %+ pthread_attr_setguardsize
+   195                              <1> %define pthread_attr_setinheritsched _ %+ pthread_attr_setinheritsched
+   196                              <1> %define pthread_attr_setschedparam _ %+ pthread_attr_setschedparam
+   197                              <1> %define pthread_attr_setschedpolicy _ %+ pthread_attr_setschedpolicy
+   198                              <1> %define pthread_attr_setscope _ %+ pthread_attr_setscope
+   199                              <1> %define pthread_attr_setstack _ %+ pthread_attr_setstack
+   200                              <1> %define pthread_attr_setstackaddr _ %+ pthread_attr_setstackaddr
+   201                              <1> %define pthread_attr_setstacksize _ %+ pthread_attr_setstacksize
+   202                              <1> %define pthread_cancel _ %+ pthread_cancel
+   203                              <1> %define pthread_cleanup_pop _ %+ pthread_cleanup_pop
+   204                              <1> %define pthread_cleanup_pop_restore_np _ %+ pthread_cleanup_pop_restore_np
+   205                              <1> %define pthread_cleanup_push _ %+ pthread_cleanup_push
+   206                              <1> %define pthread_cleanup_push_defer_np _ %+ pthread_cleanup_push_defer_np
+   207                              <1> %define pthread_create _ %+ pthread_create
+   208                              <1> %define pthread_detach _ %+ pthread_detach
+   209                              <1> %define pthread_equal _ %+ pthread_equal
+   210                              <1> %define pthread_exit _ %+ pthread_exit
+   211                              <1> %define pthread_getaffinity_np _ %+ pthread_getaffinity_np
+   212                              <1> %define pthread_getattr_np _ %+ pthread_getattr_np
+   213                              <1> %define pthread_getconcurrency _ %+ pthread_getconcurrency
+   214                              <1> %define pthread_getcpuclockid _ %+ pthread_getcpuclockid
+   215                              <1> %define pthread_getschedparam _ %+ pthread_getschedparam
+   216                              <1> %define pthread_join _ %+ pthread_join
+   217                              <1> %define pthread_kill _ %+ pthread_kill
+   218                              <1> %define pthread_kill_other_threads_np _ %+ pthread_kill_other_threads_np
+   219                              <1> %define pthread_self _ %+ pthread_self
+   220                              <1> %define pthread_setaffinity_np _ %+ pthread_setaffinity_np
+   221                              <1> %define pthread_setcancelstate _ %+ pthread_setcancelstate
+   222                              <1> %define pthread_setcanceltype _ %+ pthread_setcanceltype
+   223                              <1> %define pthread_setconcurrency _ %+ pthread_setconcurrency
+   224                              <1> %define pthread_setschedparam _ %+ pthread_setschedparam
+   225                              <1> %define pthread_setschedprio _ %+ pthread_setschedprio
+   226                              <1> %define pthread_sigmask _ %+ pthread_sigmask
+   227                              <1> %define pthread_sigqueue _ %+ pthread_sigqueue
+   228                              <1> %define pthread_testcancel _ %+ pthread_testcancel
+   229                              <1> %define pthread_timedjoin_np _ %+ pthread_timedjoin_np
+   230                              <1> %define pthread_tryjoin_np _ %+ pthread_tryjoin_np
+   231                              <1> %define pthread_yield _ %+ pthread_yield
+   232                              <1> %define putc _ %+ putc
+   233                              <1> %define putchar _ %+ putchar
+   234                              <1> %define putenv _ %+ putenv
+   235                              <1> %define puts _ %+ puts
+   236                              <1> %define qsort _ %+ qsort
+   237                              <1> %define raise _ %+ raise
+   238                              <1> %define rand _ %+ rand
+   239                              <1> %define random _ %+ random
+   240                              <1> %define read _ %+ read
+   241                              <1> %define readahead _ %+ readahead
+   242                              <1> %define readdir _ %+ readdir
+   243                              <1> %define readline _ %+ readline
+   244                              <1> %define realloc _ %+ realloc
+   245                              <1> %define remove _ %+ remove
+   246                              <1> %define rename _ %+ rename
+   247                              <1> %define rewind _ %+ rewind
+   248                              <1> %define rewinddir _ %+ rewinddir
+   249                              <1> %define rindex _ %+ rindex
+   250                              <1> %define rmdir _ %+ rmdir
+   251                              <1> %define sbrk _ %+ sbrk
+   252                              <1> %define scandir _ %+ scandir
+   253                              <1> %define scanf _ %+ scanf
+   254                              <1> %define seed48 _ %+ seed48
+   255                              <1> %define seekdir _ %+ seekdir
+   256                              <1> %define setbuf _ %+ setbuf
+   257                              <1> %define setbuffer _ %+ setbuffer
+   258                              <1> %define setegid _ %+ setegid
+   259                              <1> %define setenv _ %+ setenv
+   260                              <1> %define seteuid _ %+ seteuid
+   261                              <1> %define setgid _ %+ setgid
+   262                              <1> %define setgroups _ %+ setgroups
+   263                              <1> %define setjmp _ %+ setjmp
+   264                              <1> %define setlinebuf _ %+ setlinebuf
+   265                              <1> %define setpgid _ %+ setpgid
+   266                              <1> %define setpgrp _ %+ setpgrp
+   267                              <1> %define setregid _ %+ setregid
+   268                              <1> %define setresgid _ %+ setresgid
+   269                              <1> %define setresuid _ %+ setresuid
+   270                              <1> %define setreuid _ %+ setreuid
+   271                              <1> %define setsid _ %+ setsid
+   272                              <1> %define setuid _ %+ setuid
+   273                              <1> %define setvbuf _ %+ setvbuf
+   274                              <1> %define signal _ %+ signal
+   275                              <1> %define sin _ %+ sin
+   276                              <1> %define sincos _ %+ sincos
+   277                              <1> %define sleep _ %+ sleep
+   278                              <1> %define snprintf _ %+ snprintf
+   279                              <1> %define sprintf _ %+ sprintf
+   280                              <1> %define sqrt _ %+ sqrt
+   281                              <1> %define srand _ %+ srand
+   282                              <1> %define srand48 _ %+ srand48
+   283                              <1> %define srandom _ %+ srandom
+   284                              <1> %define sscanf _ %+ sscanf
+   285                              <1> %define stat _ %+ stat
+   286                              <1> %define statfs _ %+ statfs
+   287                              <1> %define stderr _ %+ stderr
+   288                              <1> %define stdin _ %+ stdin
+   289                              <1> %define stdout _ %+ stdout
+   290                              <1> %define stpcpy _ %+ stpcpy
+   291                              <1> %define stpncpy _ %+ stpncpy
+   292                              <1> %define strcasecmp _ %+ strcasecmp
+   293                              <1> %define strcasestr _ %+ strcasestr
+   294                              <1> %define strcat _ %+ strcat
+   295                              <1> %define strchr _ %+ strchr
+   296                              <1> %define strchrnul _ %+ strchrnul
+   297                              <1> %define strcmp _ %+ strcmp
+   298                              <1> %define strcoll _ %+ strcoll
+   299                              <1> %define strcpy _ %+ strcpy
+   300                              <1> %define strcspn _ %+ strcspn
+   301                              <1> %define strdup _ %+ strdup
+   302                              <1> %define strdupa _ %+ strdupa
+   303                              <1> %define strerror _ %+ strerror
+   304                              <1> %define strfry _ %+ strfry
+   305                              <1> %define strftime _ %+ strftime
+   306                              <1> %define strlen _ %+ strlen
+   307                              <1> %define strncasecmp _ %+ strncasecmp
+   308                              <1> %define strncat _ %+ strncat
+   309                              <1> %define strncmp _ %+ strncmp
+   310                              <1> %define strncpy _ %+ strncpy
+   311                              <1> %define strndup _ %+ strndup
+   312                              <1> %define strndupa _ %+ strndupa
+   313                              <1> %define strnlen _ %+ strnlen
+   314                              <1> %define strpbrk _ %+ strpbrk
+   315                              <1> %define strptime _ %+ strptime
+   316                              <1> %define strrchr _ %+ strrchr
+   317                              <1> %define strsep _ %+ strsep
+   318                              <1> %define strsignal _ %+ strsignal
+   319                              <1> %define strspn _ %+ strspn
+   320                              <1> %define strstr _ %+ strstr
+   321                              <1> %define strtod _ %+ strtod
+   322                              <1> %define strtof _ %+ strtof
+   323                              <1> %define strtoimax _ %+ strtoimax
+   324                              <1> %define strtok _ %+ strtok
+   325                              <1> %define strtol _ %+ strtol
+   326                              <1> %define strtold _ %+ strtold
+   327                              <1> %define strtoul _ %+ strtoul
+   328                              <1> %define swab _ %+ swab
+   329                              <1> %define symlink _ %+ symlink
+   330                              <1> %define sync _ %+ sync
+   331                              <1> %define sysctl _ %+ sysctl
+   332                              <1> %define system _ %+ system
+   333                              <1> %define tan _ %+ tan
+   334                              <1> %define telldir _ %+ telldir
+   335                              <1> %define tempnam _ %+ tempnam
+   336                              <1> %define time _ %+ time
+   337                              <1> %define timegm _ %+ timegm
+   338                              <1> %define timelocal _ %+ timelocal
+   339                              <1> %define tmpfile _ %+ tmpfile
+   340                              <1> %define tmpnam _ %+ tmpnam
+   341                              <1> %define ulimit _ %+ ulimit
+   342                              <1> %define umask _ %+ umask
+   343                              <1> %define ungetc _ %+ ungetc
+   344                              <1> %define unlink _ %+ unlink
+   345                              <1> %define unsetenv _ %+ unsetenv
+   346                              <1> %define usleep _ %+ usleep
+   347                              <1> %define ustat _ %+ ustat
+   348                              <1> %define utime _ %+ utime
+   349                              <1> %define utimes _ %+ utimes
+   350                              <1> %define valloc _ %+ valloc
+   351                              <1> %define vasprintf _ %+ vasprintf
+   352                              <1> %define vfork _ %+ vfork
+   353                              <1> %define vfprintf _ %+ vfprintf
+   354                              <1> %define vfscanf _ %+ vfscanf
+   355                              <1> %define vprintf _ %+ vprintf
+   356                              <1> %define vscanf _ %+ vscanf
+   357                              <1> %define vserver _ %+ vserver
+   358                              <1> %define vsnprintf _ %+ vsnprintf
+   359                              <1> %define vsprintf _ %+ vsprintf
+   360                              <1> %define vsscanf _ %+ vsscanf
+   361                              <1> %define wait _ %+ wait
+   362                              <1> %define wait3 _ %+ wait3
+   363                              <1> %define wait4 _ %+ wait4
+   364                              <1> %define waitid _ %+ waitid
+   365                              <1> %define waitpid _ %+ waitpid
+   366                              <1> %define write _ %+ write
+   367                              <1> %else
+   368                              <1> %define start _start
+   369                              <1> %macro cname 1-*
+   370                              <1> %rep %0
+   371                              <1> %undef %1
+   372                              <1> %rotate 1
+   373                              <1> %endrep
+   374                              <1> %endmacro
+   375                              <1> %macro CNAME 1-*
+   376                              <1> %rep %0
+   377                              <1> %undef %1
+   378                              <1> %rotate 1
+   379                              <1> %endrep
+   380                              <1> %endmacro
+   381                              <1> %macro defaultrel  0.nolist
+   382                              <1> %endmacro
+   383                              <1> %endif
+   384                              <1>     defaultrel
+   385                              <1> %undef defaultrel
+   386                              <1> 
+   387                              <1> %ifdef WINDOWS
+   388                              <1> ;
+   389                              <1> ;   frame  [parameters] [locals] [new_parameters]
+   390                              <1> ;   parameters > 4 on stack
+   391                              <1> ;
+   392                              <1> %macro frame 0-3 0,0,0   ; %1, %2 & %3 default to 0 
+   393                              <1> %if %3 <= 4
+   394                              <1> %assign xp 0
+   395                              <1> %else
+   396                              <1> %assign xp %3-4
+   397                              <1> %endif
+   398                              <1> %if %2 <= 4
+   399                              <1> %assign locals 0
+   400                              <1> %else
+   401                              <1> %assign locals %2-4
+   402                              <1> %endif
+   403                              <1> ;   Subtract enough for locals and then parameters past 6
+   404                              <1> %assign frame_size (4+locals+xp+1)/2*16
+   405                              <1> %endmacro
+   406                              <1> %undef xp
+   407                              <1> %undef locals
+   408                              <1> 
+   409                              <1> ;   Windows
+   410                              <1> ;   First 4 local variables are in the stack frame
+   411                              <1> 
+   412                              <1> local4 equ 16
+   413                              <1> local3 equ 24
+   414                              <1> local2 equ 32
+   415                              <1> local1 equ 40
+   416                              <1> 
+   417                              <1> ;   Local variables after 4 relative to rbp with negative offsets
+   418                              <1> ;
+   419                              <1> ;   local5 will be -8
+   420                              <1> ;   local6 will be -16
+   421                              <1> ;   ...
+   422                              <1> ;   local100 be be -768
+   423                              <1> ;   [rbp+localX]
+   424                              <1> 
+   425                              <1> %macro local 1
+   426                              <1> local%1 equ   -8*(%1-4)
+   427                              <1> %endmacro
+   428                              <1> %assign i 5
+   429                              <1> %rep 100
+   430                              <1>      local i
+   431                              <1>      %assign i i+1
+   432                              <1> %endrep
+   433                              <1> %undef i   
+   434                              <1> ;   Windows
+   435                              <1> ;   Where to place extra parameters when you call a function with
+   436                              <1> ;   more than 4 parameters.
+   437                              <1> ;
+   438                              <1> ;   newPar5 will be 32
+   439                              <1> ;   newPar6 will be 40
+   440                              <1> ;   ...
+   441                              <1> ;   newPar100 will be 99*8 = 792
+   442                              <1> ;   [rsp+newParX]
+   443                              <1> 
+   444                              <1> %macro newpar 1
+   445                              <1> newPar%1  equ   8*(i-1)
+   446                              <1> %endmacro
+   447                              <1> %assign i 5
+   448                              <1> %rep 96
+   449                              <1>         newpar i
+   450                              <1>         %assign i i+1
+   451                              <1> %endrep
+   452                              <1> %undef i   
+   453                              <1> 
+   454                              <1> ;   Windows
+   455                              <1> ;   Where to find additional parameters to current function
+   456                              <1> ;   past parameter 4
+   457                              <1> ;
+   458                              <1> ;   currPar5 will be 48
+   459                              <1> ;   currPar6 will be 56
+   460                              <1> ;   ...
+   461                              <1> ;   currPar100 will be 808
+   462                              <1> ;   [rbp+currParX]
+   463                              <1> 
+   464                              <1> %macro parequ 1
+   465                              <1> currPar%1  equ 8*(%1+1)
+   466                              <1> %endmacro
+   467                              <1> 
+   468                              <1> %assign i 5
+   469                              <1> %rep 96
+   470                              <1>         parequ i
+   471                              <1>         %assign i i+1
+   472                              <1> %endrep
+   473                              <1> %undef i   
+   474                              <1> 
+   475                              <1> %else                       ; Linux/OS X
+   476                              <1> ;
+   477                              <1> ;   frame [parameters] [locals] [new_parameters]
+   478                              <1> ;   parameters > 6 on stack
+   479                              <1> ;
+   480                              <1> %macro frame 0-3 0,0,0
+   481                              <1> %if %3 <= 6
+   482                              <1> %assign xp 0
+   483                              <1> %else
+   484                              <1> %assign xp %3-6
+   485                              <1> %endif
+   486                              <1> ;   Subtract enough for locals and then parameters past 6
+   487                              <1> %assign frame_size (%2+xp+1)/2*16
+   488                              <1> %endmacro
+   489                              <1> %undef xp
+   490                              <1> 
+   491                              <1> ;   Linux
+   492                              <1> ;   Local variables accessed relative to rbp with negative offsets
+   493                              <1> ;
+   494                              <1> ;   local1 will be -8
+   495                              <1> ;   local2 will be -16
+   496                              <1> ;   ...
+   497                              <1> ;   local100 be be -800
+   498                              <1> ;   [rbp+localX]
+   499                              <1> 
+   500                              <1> %macro local 1
+   501                              <1> local%1 equ   -8*%1
+   502                              <1> %endmacro
+   503                              <1> %assign i 1
+   504                              <1> %rep 100
+   505                              <1>      local i
+   506                              <1>      %assign i i+1
+   507                              <1> %endrep
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   507                              <2>  local i
+   507                              <3> local%1 equ -8*%1
+   507                              <2>  %assign i i+1
+   508                              <1> %undef i
+   509                              <1>    
+   510                              <1> ;   Linux
+   511                              <1> ;   Where to place extra parameters when you call a function with
+   512                              <1> ;   more than 6 parameters.
+   513                              <1> ;
+   514                              <1> ;   newPar7 will be 0
+   515                              <1> ;   newPar8 will be 8
+   516                              <1> ;   ...
+   517                              <1> ;   newPar100 will be 93*8 = 744
+   518                              <1> ;   [rsp+newParX]
+   519                              <1> 
+   520                              <1> %macro newpar 1
+   521                              <1> newPar%1  equ   8*(i-7)
+   522                              <1> %endmacro
+   523                              <1> %assign i 7
+   524                              <1> %rep 94
+   525                              <1>         newpar i
+   526                              <1>         %assign i i+1
+   527                              <1> %endrep
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   527                              <2>  newpar i
+   527                              <3> newPar%1 equ 8*(i-7)
+   527                              <2>  %assign i i+1
+   528                              <1> %undef i
+   529                              <1> 
+   530                              <1> ;   Linux
+   531                              <1> ;   Where to find additional parameters to current function
+   532                              <1> ;   past parameter 6
+   533                              <1> ;
+   534                              <1> ;   currPar7 will be 16
+   535                              <1> ;   currPar8 will be 24
+   536                              <1> ;   ...
+   537                              <1> ;   currPar100 will be 760
+   538                              <1> ;   [rbp+currParX]
+   539                              <1> 
+   540                              <1> %macro parequ 1
+   541                              <1> currPar%1  equ 16+8*(%1-7)
+   542                              <1> %endmacro
+   543                              <1> 
+   544                              <1> %assign i 7
+   545                              <1> %rep 94
+   546                              <1>         parequ i
+   547                              <1>         %assign i i+1
+   548                              <1> %endrep
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   548                              <2>  parequ i
+   548                              <3> currPar%1 equ 16+8*(%1-7)
+   548                              <2>  %assign i i+1
+   549                              <1> %undef i
+   550                              <1> 
+   551                              <1> %endif      ; from original test on WINDOWS
+   552                              <1> 
+   553                              <1> %macro  multipush 2-*
+   554                              <1> %rep %0
+   555                              <1>         push %1
+   556                              <1> %rotate 1
+   557                              <1> %endrep
+   558                              <1> %endmacro
+   559                              <1> 
+   560                              <1> %macro  multipop 2-*
+   561                              <1> %rep %0
+   562                              <1>         pop %1
+   563                              <1> %rotate 1
+   564                              <1> %endrep
+   565                              <1> %endmacro
+   566                              <1> 
+   567                              <1> %define raxd eax
+   568                              <1> %define raxw ax
+   569                              <1> %define raxb al
+   570                              <1> %define raxh ah
+   571                              <1> 
+   572                              <1> %define rbxd ebx
+   573                              <1> %define rbxw bx
+   574                              <1> %define rbxb bl
+   575                              <1> %define rbxh bh
+   576                              <1> 
+   577                              <1> %define rcxd ecx
+   578                              <1> %define rcxw cx
+   579                              <1> %define rcxb cl
+   580                              <1> %define rcxh ch
+   581                              <1> 
+   582                              <1> %define rdxd edx
+   583                              <1> %define rdxw dx
+   584                              <1> %define rdxb dl
+   585                              <1> %define rdxh dh
+   586                              <1> 
+   587                              <1> %define rdid edi
+   588                              <1> %define rdiw di
+   589                              <1> %define rdib dil
+   590                              <1> 
+   591                              <1> %define rsid six
+   592                              <1> %define rsiw si
+   593                              <1> %define rsib sil
+   594                              <1> 
+   595                              <1> %define rbpd ebp
+   596                              <1> %define rbpw bp
+   597                              <1> 
+   598                              <1> %macro alias 2
+   599                              <1> %define q%1 %2
+   600                              <1> %define d%1 %2d
+   601                              <1> %define w%1 %2w
+   602                              <1> %define b%1 %2b
+   603                              <1> %define h%1 %2h
+   604                              <1> %endmacro
+   605                              <1> 
+   606                              <1> %macro unalias 1-*
+   607                              <1> %rep %0
+   608                              <1> %undef q%1
+   609                              <1> %undef d%1
+   610                              <1> %undef w%1
+   611                              <1> %undef b%1
+   612                              <1> %undef h%1
+   613                              <1> %rotate 1
+   614                              <1> %endrep
+   615                              <1> %endmacro
+   616                              <1> 
+   617                              <1> %macro fpalias 2
+   618                              <1> %define y%1 ymm%2
+   619                              <1> %define x%1 xmm%2
+   620                              <1> %endmacro
+   621                              <1> 
+   622                              <1> %macro fpunalias 1-*
+   623                              <1> %rep %0
+   624                              <1> %undef y%1
+   625                              <1> %undef x%1
+   626                              <1> %rotate 1
+   627                              <1> %endrep
+   628                              <1> %endmacro
+     1                                  section .data
+     2 00000000 AA                          testNum: db 10101010b ;test number for hamming code
+     3                                  
+     4 00000001 5374617274696E6720-         text1 db "Starting binary number is 01010101",0
+     4 0000000A 62696E617279206E75-
+     4 00000013 6D6265722069732030-
+     4 0000001C 3130313031303100   
+     5 00000024 5769746820636F7272-         text2 db "With correct parity ",0
+     5 0000002D 656374207061726974-
+     5 00000036 792000             
+     6 00000039 43617573696E672065-         text3 db "Causing error in number... 010100100011",0
+     6 00000042 72726F7220696E206E-
+     6 0000004B 756D6265722E2E2E20-
+     6 00000054 303130313030313030-
+     6 0000005D 30313100           
+     7 00000061 436F7272656374696E-         text4 db "Correcting... ",0
+     7 0000006A 672E2E2E2000       
+     8 00000070 697420776F756C6420-         question3 db "it would take the same amount of time"
+     8 00000079 74616B652074686520-
+     8 00000082 73616D6520616D6F75-
+     8 0000008B 6E74206F662074696D-
+     8 00000094 65                 
+     9 00000095 206265636175736520-         q3cont db " because it is a linear program, that would run at constant time."
+     9 0000009E 69742069732061206C-
+     9 000000A7 696E6561722070726F-
+     9 000000B0 6772616D2C20746861-
+     9 000000B9 7420776F756C642072-
+     9 000000C2 756E20617420636F6E-
+     9 000000CB 7374616E742074696D-
+     9 000000D4 652E               
+    10 000000D6 746869732069732062-         q4cont db "this is because we are checking the for the parity bits one at a time."
+    10 000000DF 656361757365207765-
+    10 000000E8 206172652063686563-
+    10 000000F1 6B696E672074686520-
+    10 000000FA 666F72207468652070-
+    10 00000103 617269747920626974-
+    10 0000010C 73206F6E6520617420-
+    10 00000115 612074696D652E     
+    11 0000011C 736F206974206D7573-         q5cont db "so it must go through the array one by incrementing it in a specific way."
+    11 00000125 7420676F207468726F-
+    11 0000012E 756768207468652061-
+    11 00000137 72726179206F6E6520-
+    11 00000140 627920696E6372656D-
+    11 00000149 656E74696E67206974-
+    11 00000152 20696E206120737065-
+    11 0000015B 636966696320776179-
+    11 00000164 2E                 
+    12 00000165 200A00                      NL db " ",10,0
+    13 00000168 00                          buffer: db 0
+    14                                      ;text5: db "Please enter a value you would like to be checked: ",0
+    15                                      
+    16                                      len3 equ $-text3
+    17                                      len4 equ $-text4
+    18                                  lenq equ $-question3
+    19                                  lenq2 equ $-q3cont
+    20                                      
+    21                                  section .bss
+    22 00000000 <res 0000000C>              testHamNumArr: TIMES 12 resb 1 ;array of bits to define hamming code
+    23 0000000C <res 00000002>              variable: resw 1               ;stores user input
+    24 0000000E <res 00000002>              variableend: resw 1            ;getting the position of the end of the variable
+    25 00000010 <res 00000002>              shift: resw 1                  ;value that will be multiplied to be converted from ascii to int
+    26                                  
+    27                                      global _start
+    28                                  section .text
+    29                                      
+    30                                  _start:
+    31 00000000 E88D010000                  call createParityArr_
+    32                                  
+    33 00000005 B801000000                  mov rax, 1
+    34 0000000A 48BF-                       mov rdi, testNum
+    34 0000000C [0000000000000000] 
+    35 00000014 0F05                        syscall
+    36                                  
+    37 00000016 4831C0                      xor rax, rax
+    38                                  
+    39 00000019 41BB09000000                mov r11,9
+    40 0000001F 41B800000000                mov r8, 0
+    41 00000025 49BA-                       mov r10, testHamNumArr
+    41 00000027 [0000000000000000] 
+    42 0000002F 4983C201                    add r10, 1
+    43 00000033 488B0425[00000000]          mov rax, [testNum]
+    44                                  
+    45 0000003B E880010000                  call addBitsToArr_
+    46 00000040 4D31D2                      xor r10, r10
+    47 00000043 4831C0                      xor rax, rax
+    48                                      
+    49                                      
+    50 00000046 49B8-                       mov r8, testHamNumArr
+    50 00000048 [0000000000000000] 
+    51 00000050 E8B2010000                  call setFirstParity_
+    52                                      
+    53 00000055 4983C001                    add r8, 1
+    54 00000059 E8EA010000                  call setSecondParity_
+    55                                      
+    56 0000005E 4983C002                    add r8, 2
+    57 00000062 E82D020000                  call setThirdParity_
+    58                                      
+    59 00000067 4983C004                    add r8, 4
+    60 0000006B E870020000                  call setFourthPartiy_
+    61                                      
+    62 00000070 E8B0020000                  call causeError_
+    63                                      
+    64 00000075 E8C5020000                  call checkParity_
+    65                                      
+    66 0000007A E8DA020000                  call convertToAscii_
+    67                                  
+    68 0000007F 48B8-                       mov rax, text1
+    68 00000081 [0100000000000000] 
+    69 00000089 E82A030000                  call _print
+    70                                      
+    71 0000008E 48B8-                       mov rax, NL
+    71 00000090 [6501000000000000] 
+    72 00000098 E81B030000                  call _print
+    73                                      
+    74 0000009D 48B8-                       mov rax, text2
+    74 0000009F [2400000000000000] 
+    75 000000A7 E80C030000                  call _print
+    76                                      
+    77 000000AC E8D3020000                  call outputArray_
+    78                                      
+    79 000000B1 48B8-                       mov rax, NL
+    79 000000B3 [6501000000000000] 
+    80 000000BB E8F8020000                  call _print
+    81                                      
+    82 000000C0 48B8-                       mov rax, text3
+    82 000000C2 [3900000000000000] 
+    83 000000CA E8E9020000                  call _print
+    84                                      
+    85 000000CF 48B8-                       mov rax, NL
+    85 000000D1 [6501000000000000] 
+    86 000000D9 E8DA020000                  call _print
+    87                                      
+    88 000000DE 48B8-                       mov rax, text4
+    88 000000E0 [6100000000000000] 
+    89 000000E8 E8CB020000                  call _print
+    90                                      
+    91 000000ED E892020000                  call outputArray_
+    92                                      
+    93 000000F2 48B8-                       mov rax, NL
+    93 000000F4 [6501000000000000] 
+    94 000000FC E8B7020000                  call _print
+    95                                      
+    96 00000101 48B8-                       mov rax, NL
+    96 00000103 [6501000000000000] 
+    97 0000010B E8A8020000                  call _print
+    98                                      
+    99 00000110 48B8-                       mov rax, question3
+    99 00000112 [7000000000000000] 
+   100 0000011A E899020000                  call _print
+   101                                      
+   102 0000011F 48B8-                       mov rax, NL
+   102 00000121 [6501000000000000] 
+   103 00000129 E88A020000                  call _print
+   104                                      
+   105 0000012E 48B8-                       mov rax, q4cont
+   105 00000130 [D600000000000000] 
+   106 00000138 E87B020000                  call _print
+   107                                      
+   108 0000013D 48B8-                       mov rax, NL
+   108 0000013F [6501000000000000] 
+   109 00000147 E86C020000                  call _print
+   110                                      
+   111 0000014C 48B8-                       mov rax, q5cont
+   111 0000014E [1C01000000000000] 
+   112 00000156 E85D020000                  call _print
+   113                                      
+   114 0000015B 48B8-                       mov rax, NL
+   114 0000015D [6501000000000000] 
+   115 00000165 E84E020000                  call _print
+   116                                      
+   117 0000016A B83C000000                  mov rax, 60
+   118 0000016F BF00000000                  mov rdi, 0
+   119 00000174 0F05                        syscall
+   120                                  
+   121                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   122                                  ;getting the input of the user for the true value input
+   123                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   124                                  _getvariable:
+   125 00000176 B800000000                  mov rax, 0
+   126 0000017B BF00000000                  mov rdi, 0
+   127 00000180 48BE-                       mov rsi, variable
+   127 00000182 [0C00000000000000] 
+   128 0000018A BA08000000                  mov rdx, 8
+   129 0000018F 0F05                        syscall
+   130 00000191 C3                          ret
+   131                                       
+   132                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   133                                  ;creatParityArr_ will set the 1st bit, the 2nd bit, the 4th bit, 
+   134                                  ;and the 8th bit to 2 as a place holder for 0 so we can check 
+   135                                  ;what it needs to be changed to. 
+   136                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   137                                  createParityArr_:
+   138 00000192 49BA-                       mov r10, testHamNumArr      ;mvoing testHamNumArr into r10
+   138 00000194 [0000000000000000] 
+   139 0000019C 41B801000000                mov r8, 1                   ;putting 1 into r8
+   140 000001A2 41C60202                    mov byte [r10], 2           ;moving 2 into that spot of r10
+   141 000001A6 41BB03000000                mov r11, 3                  ;mov 3 into r11
+   142                                  reserveParity_:
+   143 000001AC 49FFCB                      dec r11                     ;decrementing r11
+   144 000001AF 4D01C2                      add r10, r8                 ;add r8 to r10
+   145 000001B2 41C60202                    mov byte [r10],2            ;moving 2 into the spot of r10
+   146 000001B6 4D01C0                      add r8, r8                  ;clearing the r8 register
+   147 000001B9 4983FB00                    cmp r11, 0                  ;comparing r11 (counter to 0)
+   148 000001BD 75ED                        jne reserveParity_          ;if not equal, jump to 
+   149                                                                  ;reserveParity_ again. 
+   150 000001BF C3                          ret                         ;else its done and return
+   151                                  
+   152                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   153                                  ;addBitsToArr_ will add the value that is being inputted into the 
+   154                                  ;array. It will check to see where the parity bits are and skip
+   155                                  ;those but add the value into the spots that are available. 
+   156                                  ;This is to make sure it is not overwriting the parity Bits. 
+   157                                  ;it will check to see if the number is odd in the rdx, and if it
+   158                                  ;is, it will changed that value to 1 but it will first check to 
+   159                                  ;see if there is a parity bit there. If there is, it will skip 
+   160                                  ;that spot and go to the next spot over to input that number. 
+   161                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   162                                  addBitsToArr_:
+   163 000001C0 49FFC2                      inc r10                     ;incrementing r10
+   164 000001C3 49FFCB                      dec r11                     ;decrementing r11
+   165 000001C6 4983FB00                    cmp r11, 0                  ;comparing r11 to 0
+   166 000001CA 7504                        jne continue_               ;if not equal jump to continue_
+   167 000001CC 4D31D2                      xor r10, r10                ;else clear r10 
+   168 000001CF C3                          ret                         ;and return
+   169                                  
+   170                                  continue_:
+   171 000001D0 41BC02000000                mov r12, 2                  ;move 2 into r12
+   172 000001D6 49F7F4                      div r12                     ;diving by r12
+   173 000001D9 6683FA01                    cmp dx, 1                   ;if the remainder is 1
+   174 000001DD 7402                        je remainderOne_            ;jump to remainderOne_
+   175 000001DF EB0B                        jmp remainderZero_          ;else jumps to remainderZero_
+   176                                  
+   177                                  remainderOne_:
+   178 000001E1 41803A02                    cmp byte[r10], 2            ;compares the byte of r[10] to 2
+   179 000001E5 7510                        JNE addNumToArr_            ;if its not equal, jump to 
+   180                                                                  ;addNumToArr_
+   181 000001E7 49FFC2                      inc r10                     ;else increment r10
+   182 000001EA EBF5                        jmp remainderOne_           ;and jump to remainderOne_
+   183                                  
+   184                                  remainderZero_:
+   185 000001EC 41803A02                    cmp byte[r10], 2            ;comparing byte[r10] to 2
+   186 000001F0 75CE                        JNE addBitsToArr_           ;if not equal jump 
+   187                                                                  ;to addBitsToArr_
+   188 000001F2 49FFC2                      inc r10                     ;else increment r10
+   189 000001F5 EBC9                        jmp addBitsToArr_           ;then jump to addBitsToArr_
+   190                                  
+   191                                  addNumToArr_:
+   192 000001F7 41C60201                    mov byte[r10], 1            ;moving byte[r10] to 1
+   193 000001FB EBC3                        jmp addBitsToArr_           ;then jumps to addBitsToArr_
+   194                                  
+   195                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   196                                  setToZero_:
+   197 000001FD 41C60000                    mov byte [r8], 0        ;if the byte is even, set it to zero
+   198 00000201 C3                          ret
+   199                                  
+   200                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   201                                  setToOne_:
+   202 00000202 41C60001                    mov byte [r8], 1        ;if it is odd, set it to 1
+   203 00000206 C3                          ret
+   204                                  
+   205                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   206                                  setFirstParity_:
+   207 00000207 49BA-                       mov r10, testHamNumArr  ;moving the arr into r10
+   207 00000209 [0000000000000000] 
+   208 00000211 498B02                      mov rax, [r10]          ;moving the value of r10 into rax
+   209 00000214 4983C202                    add r10, 2              ;incrementing by twpo to check for
+   210                                                              ;the first parity bit
+   211 00000218 490302                      add rax, [r10]          ;moving that number into the rax
+   212 0000021B 4983C202                    add r10, 2              ;incrementing r10 by 2
+   213 0000021F 490302                      add rax, [r10]          ;adding it r10 to the rax
+   214 00000222 4983C202                    add r10, 2
+   215 00000226 490302                      add rax, [r10]          ;the rest is doing the same thing
+   216 00000229 4983C202                    add r10, 2
+   217 0000022D 490302                      add rax, [r10]
+   218 00000230 4983C202                    add r10, 2
+   219 00000234 490302                      add rax, [r10]
+   220                                  
+   221                                  
+   222 00000237 41B902000000                mov r9, 2               ;moving 2 into r9
+   223 0000023D 49F7F1                      div r9                  ;diving r9
+   224 00000240 6683FA00                    cmp dx, 0               ;compare it to 0
+   225 00000244 74B7                        je setToZero_           ;if it is zero, jump to setToZero_
+   226 00000246 EBBA                        jmp setToOne_           ;else it is odd and jump to setToOne_
+   227                                  
+   228                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   229                                  setSecondParity_:
+   230 00000248 49BA-                       mov r10, testHamNumArr  ;moving testHamNumArr into r10
+   230 0000024A [0000000000000000] 
+   231 00000252 4983C201                    add r10, 1              ;increment r10 by 1 to get the second
+   232                                                              ;parity bit
+   233 00000256 498B02                      mov rax, [r10]          ;mov r10 into rax
+   234 00000259 4983C201                    add r10, 1              ;increment r10 by 1
+   235 0000025D 490302                      add rax, [r10]          ;add r10 into the rax
+   236 00000260 4983C203                    add r10, 3              ;increment r10 by 3
+   237 00000264 490302                      add rax, [r10]          ;add the value of r10 into the rax
+   238 00000267 4983C201                    add r10, 1              ;increment r10
+   239 0000026B 490302                      add rax, [r10]          ;add that value in r10 into rax
+   240 0000026E 4983C203                    add r10, 3              ;increment r10 by 3
+   241 00000272 490302                      add rax, [r10]          ;add r10 value into the rax
+   242 00000275 4983C201                    add r10, 1              ;increment r10 by 1
+   243 00000279 490302                      add rax, [r10]          ;add r10 value into the rax
+   244                                  
+   245 0000027C 41B902000000                mov r9, 2               ;move 2 into 2
+   246 00000282 49F7F1                      div r9                  ;dividing by r9
+   247 00000285 6683FA00                    cmp dx, 0               ;comparing it to zero
+   248 00000289 0F846EFFFFFF                je setToZero_           ;if it is 0, its even and
+   249                                                              ;jump to setToZero_
+   250 0000028F E96EFFFFFF                  jmp setToOne_           ;if it is 1, its odd and 
+   251                                                              ;jump to setToOne_ 
+   252                                  
+   253                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   254                                  setThirdParity_:
+   255 00000294 49BA-                       mov r10, testHamNumArr  ;moving testHamNumArr into r10
+   255 00000296 [0000000000000000] 
+   256 0000029E 4983C203                    add r10, 3              ;incrementing r10 by 3
+   257 000002A2 498B02                      mov rax, [r10]          ;the rest is doing the same as above
+   258 000002A5 4983C201                    add r10, 1              
+   259 000002A9 490302                      add rax, [r10]
+   260 000002AC 4983C201                    add r10, 1
+   261 000002B0 490302                      add rax, [r10]
+   262 000002B3 4983C201                    add r10, 1
+   263 000002B7 490302                      add rax, [r10]
+   264 000002BA 4983C204                    add r10, 4              ;incrementing r10 by 4
+   265 000002BE 490302                      add rax, [r10]          ;add value inot the rax
+   266 000002C1 4983C201                    add r10, 1              ;increment by 1
+   267 000002C5 490302                      add rax, [r10]          ;add r10 to rax
+   268                                  
+   269 000002C8 41B902000000                mov r9, 2               ;move 2 to r9
+   270 000002CE 49F7F1                      div r9                  ;diving by r9
+   271 000002D1 6683FA00                    cmp dx, 0               ;compare if it is zero
+   272 000002D5 0F8422FFFFFF                je setToZero_           ;if its zero, jump to setToZero_
+   273 000002DB E922FFFFFF                  jmp setToOne_           ;else its odd, jump to setToOne_
+   274                                  
+   275                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   276                                  setFourthPartiy_:
+   277 000002E0 49BA-                       mov r10, testHamNumArr  ;moving testHamNumArr
+   277 000002E2 [0000000000000000] 
+   278 000002EA 4983C207                    add r10, 7              ;incrementing r10 by 7
+   279 000002EE 498B02                      mov rax, [r10]          ;adding that value into r10
+   280 000002F1 4983C201                    add r10, 1              ;increment by 1
+   281 000002F5 490302                      add rax, [r10]          ;adding r10 value into rax
+   282 000002F8 4983C201                    add r10, 1              ;incrementing by 1
+   283 000002FC 490302                      add rax, [r10]          ;adding r10 value into rax
+   284 000002FF 4983C201                    add r10, 1              ;incrementing by 1  
+   285 00000303 490302                      add rax, [r10]          ;adding r10 value into rax
+   286 00000306 4983C201                    add r10, 1              ;incrementing by 1
+   287 0000030A 490302                      add rax, [r10]          ;adding r10 value into rax
+   288                                  
+   289 0000030D 41B902000000                mov r9, 2               ;moving 2 into r9
+   290 00000313 49F7F1                      div r9                  ;dividing by r9
+   291 00000316 6683FA00                    cmp dx, 0               ;comparing to zero
+   292 0000031A 0F84DDFEFFFF                je setToZero_           ;if its even, jump to setToZero_
+   293 00000320 E9DDFEFFFF                  jmp setToOne_           ;if its odd, jump to setToOne_
+   294                                  
+   295                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   296                                  ;will go through the testHamNumArr and check each byte again
+   297                                  ;and see which bit is causing the error and then it changes
+   298                                  ;it so to 0 or 1
+   299                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  
+   300                                  causeError_:
+   301 00000325 49BA-                       mov r10, testHamNumArr
+   301 00000327 [0000000000000000] 
+   302 0000032F 41803A00                    cmp byte [r10], 0
+   303 00000333 7405                        je changeBit_
+   304 00000335 41C60200                    mov byte [r10], 0
+   305 00000339 C3                          ret
+   306                                      changeBit_:
+   307 0000033A 41C60201                    mov byte [r10], 1
+   308 0000033E C3                          ret
+   309                                  
+   310                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   311                                  ;checking the parity of the testHamNumArr and comparing the 
+   312                                  ;byte to 0 and if it is, change it to 1 otherwise it will be
+   313                                  ;changed to 0. 
+   314                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   315                                  checkParity_:
+   316 0000033F 49BA-                       mov r10, testHamNumArr
+   316 00000341 [0000000000000000] 
+   317 00000349 41803A00                    cmp byte [r10], 0
+   318 0000034D 7405                        je changeBit2_
+   319 0000034F 41C60200                    mov byte [r10], 0
+   320 00000353 C3                          ret
+   321                                      changeBit2_:
+   322 00000354 41C60201                    mov byte [r10], 1
+   323 00000358 C3                          ret
+   324                                  
+   325                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   326                                  ;convertToAscii_ gets the values withint the tesHamNumArr
+   327                                  ;and converts it into readable characters to the user.
+   328                                  ;without it, it will print out 0x and the number that comes
+   329                                  ;after it instead of 1's or 0's
+   330                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   331                                  convertToAscii_:
+   332 00000359 41BA00000000                mov r10, 0
+   333 0000035F 49B8-                       mov r8, testHamNumArr
+   333 00000361 [0000000000000000] 
+   334 00000369 49FFC8                      dec r8
+   335                                  
+   336                                  Loop0_:
+   337 0000036C 49FFC0                      inc r8
+   338 0000036F 4D8B08                      mov r9, [r8]
+   339 00000372 4983C130                    add r9, 48
+   340 00000376 4D8908                      mov [r8], r9
+   341 00000379 49FFC2                      inc r10
+   342 0000037C 4983FA0C                    cmp r10, 12
+   343 00000380 7435                        je ret_
+   344 00000382 EBE8                        jmp Loop0_
+   345                                  
+   346                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   347                                  ;outputting the array by moving r10 to 13 as a counter
+   348                                  ;then it moves the testHamNumArr into the rsi
+   349                                  ;then you add 12 to the rsi to start at the end of the array
+   350                                  ;so it can print out in proper order instead of appearing
+   351                                  ;backwards.
+   352                                  ;each time you dec rsi and the r10 so you can keep a counter
+   353                                  ;and also move the testHamNumArr to the correct position as 
+   354                                  ;well.
+   355                                  ;when its done it will output it to the user and then it
+   356                                  ;will exit the loop. 
+   357                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   358                                  outputArray_:
+   359 00000384 41BA0D000000                mov r10, 13
+   360 0000038A 48BE-                       mov rsi, testHamNumArr
+   360 0000038C [0000000000000000] 
+   361 00000394 4883C60C                    add rsi, 12
+   362                                      
+   363                                  Loop1_:
+   364 00000398 B801000000                  mov rax, 1
+   365 0000039D BF01000000                  mov rdi, 1
+   366 000003A2 BA01000000                  mov rdx, 1
+   367 000003A7 0F05                        syscall
+   368 000003A9 48FFCE                      dec rsi
+   369 000003AC 49FFCA                      dec r10
+   370 000003AF 4983FA00                    cmp r10, 0
+   371 000003B3 7402                        je ret_
+   372 000003B5 EBE1                        jmp Loop1_
+   373                                      
+   374                                  ret_:
+   375 000003B7 C3                          ret
+   376                                  
+   377                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   378                                  ;this is the pring statement for the new line and the output
+   379                                  ;stating what it is. 
+   380                                  _print:
+   381 000003B8 50                          push rax
+   382 000003B9 BB00000000                  mov rbx, 0
+   383                                  _loop:
+   384 000003BE 48FFC0                      inc rax
+   385 000003C1 48FFC3                      inc rbx
+   386 000003C4 8A08                        mov cl, [rax]
+   387 000003C6 80F900                      cmp cl, 0
+   388 000003C9 75F3                        jne _loop
+   389                                      
+   390 000003CB B801000000                  mov rax, 1
+   391 000003D0 BF01000000                  mov rdi, 1
+   392 000003D5 5E                          pop rsi
+   393 000003D6 4889DA                      mov rdx, rbx
+   394 000003D9 0F05                        syscall
+   395 000003DB C3                          ret
+   396                                      
+   397                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+   398                                  ;seperate print function
+   399                                  Print_:
+   400 000003DC B801000000              mov rax, 1
+   401 000003E1 BF01000000              mov rdi, 1
+   402 000003E6 0F05                    syscall
+   403 000003E8 C3                      ret
+   404                                  

@@ -1,0 +1,6 @@
+Script started on 2018-04-16 11:10:55-0700
+]777;notify;Command completed;exit]0;005178247@csusb.edu@jb357-l1:~/cse313/lab1]7;file://jb357-l1.cse.csusb.edu/home/csusb.edu/005178247/cse313/lab1[005178247@csusb.edu@jb357-l1 lab1]$ g++ -S Hello.cpp
+]777;notify;Command completed;g++ -S Hello.cpp]0;005178247@csusb.edu@jb357-l1:~/cse313/lab1]7;file://jb357-l1.cse.csusb.edu/home/csusb.edu/005178247/cse313/lab1[005178247@csusb.edu@jb357-l1 lab1]$ e[Kprint[K[K[K[K[Kexit
+exit
+
+Script done on 2018-04-16 11:11:16-0700
